@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>THREE.Watercolor - Fantasy Nature Scene Demo</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        overflow: hidden;
+      }
+
+      #canvas-container {
+        width: 100vw;
+        height: 100vh;
+        position: relative;
+      }
+
+      canvas {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+
+      #loading {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-size: 24px;
+        text-align: center;
+        z-index: 1000;
+        background: rgba(0, 0, 0, 0.7);
+        padding: 30px 50px;
+        border-radius: 15px;
+        backdrop-filter: blur(10px);
+      }
+
+      #loading.hidden {
+        display: none;
+      }
+
+      #info {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        color: white;
+        font-size: 14px;
+        background: rgba(0, 0, 0, 0.6);
+        padding: 15px 20px;
+        border-radius: 10px;
+        backdrop-filter: blur(10px);
+        max-width: 300px;
+        z-index: 100;
+      }
+
+      #info h1 {
+        font-size: 18px;
+        margin-bottom: 10px;
+        color: #ffd700;
+      }
+
+      #info p {
+        margin: 5px 0;
+        line-height: 1.4;
+      }
+
+      .spinner {
+        border: 4px solid rgba(255, 255, 255, 0.3);
+        border-top: 4px solid white;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        animation: spin 1s linear infinite;
+        margin: 20px auto;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="canvas-container">
+      <div id="loading">
+        <div>Loading Watercolor Scene...</div>
+        <div class="spinner"></div>
+      </div>
+
+      <div id="info">
+        <h1>🎨 Watercolor Fantasy</h1>
+        <p><strong>Controls:</strong></p>
+        <p>🖱️ Left Click + Drag: Rotate</p>
+        <p>🖱️ Right Click + Drag: Pan</p>
+        <p>🖱️ Scroll: Zoom</p>
+        <p>
+          <strong>Scene:</strong> Mushroom Temple with altars, trees, and clouds
+        </p>
+      </div>
+    </div>
+
+    <!-- Three.js and dependencies -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/EffectComposer.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/RenderPass.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/ShaderPass.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/CopyShader.js"></script>
+
+    <!-- Watercolor library -->
+    <script src="Watercolor.js"></script>
+    <script src="WatercolorPass.js"></script>
+
+    <!-- Main demo script -->
+    <script src="demo.js"></script>
+  </body>
+</html>
